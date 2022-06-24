@@ -1,27 +1,22 @@
-import DOMPurify from 'dompurify'
-import { marked } from 'marked'
 import type { NextPage } from 'next'
-import { useState } from 'react'
-import EditorLayout from '../components/layouts/editor'
-import MardownArea from '../components/markdown-code'
-import HtmlView from '../components/view-html-code'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-  const [code, setCode] = useState('')
-
-  const handleChange = (code: string) => {
-    const html = marked.parse(code)
-    const cleanHtml = DOMPurify.sanitize(html)
-    return setCode(cleanHtml)
-  }
+  
   return (
-    <div className={styles.container}>
-      <h1 style={{color: '#fff'}}>Mark Editor</h1>
-      <EditorLayout>
-        <MardownArea handleChange={handleChange} />
-        <HtmlView html={code} />
-      </EditorLayout>
+    <div className={styles.homeContainer}>
+      <h1 className={styles.name}>Mark Editor</h1>
+      <section className={styles.textContainer}>
+        <h2 className={styles.text}>Simple</h2>
+        <h2 className={styles.text}>Markdown</h2>
+        <h2 className={styles.text}>Editor</h2>
+      </section>
+      <div className={styles.button}>
+        <Link href='/editor'>
+          <a>let&apos;s go</a>
+        </Link>
+      </div>
     </div>
   )
 }

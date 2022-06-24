@@ -1,24 +1,55 @@
+.pageContainer{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(108.88deg, #FDB4B4 10.98%, #EACE85 53.55%, #B5E9E1 91.11%);
+}
+
 .mainContainer{
   display: flex;
-  border: 5px solid rgb(81, 29, 202);
+  flex-direction: column;
+  border: 1px solid #fff;
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+  background-color: rgb(250, 245, 228, 0.5);
+  backdrop-filter: blur(20px) saturate(120%);
+  color: #383838;
+}
+
+.navbar {
   width: 100%;
-  height: 80%;
+  height: 50px;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.editorContainer {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 50px);
 }
 
 .containerHtml {
   width: 50%;
   height: 100%;
-  background: rgb(255, 255, 255);
+  background: transparent;
   word-wrap: break-word;
   padding: 5px 15px 5px 15px;
   text-align: left;
   overflow-y: auto;
+  border-left: 1px solid #fff;
 }
 
 .containerMarkdown {
   width: 50%;
   height: 100%;
-  background:rgb(239, 233, 253);
+  background:transparent;
   resize: none;
   padding: 20px;
   border: none;
@@ -30,12 +61,15 @@
 }
 
 @media screen and (max-width: 600px) {
-  .mainContainer {
+  .editorContainer {
     flex-direction: column;
   }
   .containerHtml {
     width: 100%;
     height: 50%;
+    border-left: none;
+    border-top: 1px solid #fff;
+    margin-top: 0;
   }
   .containerMarkdown{
     width: 100%;

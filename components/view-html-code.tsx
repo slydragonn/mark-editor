@@ -8,8 +8,9 @@ interface Props {
 const HtmlView = ({html}:Props) => {
   return (
     <div 
-    className={styles.containerHtml}
-     dangerouslySetInnerHTML={{__html: html}}/>
+      className={styles.containerHtml}
+      dangerouslySetInnerHTML={{__html: html}}
+    />
   )
 }
 
