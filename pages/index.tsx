@@ -29,7 +29,9 @@ const Home: NextPage = () => {
             <a>let&apos;s go</a>
           </Link>
         </div>
-        <BsGithub className={styles.githubIcon} />
+        <Link href='https://github.com/slydragonn/mark-editor' passHref>
+          <a target='_blank'><BsGithub className={styles.githubIcon} /></a>
+        </Link>
       </section>
     </div>
   )
