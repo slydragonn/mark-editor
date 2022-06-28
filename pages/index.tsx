@@ -21,8 +21,8 @@ const Home: NextPage = () => {
       <section className={styles.scrollContainer}>
         <SiEditorconfig className={styles.editorIcon}/>
         <div className={styles.legend}>
-          <p>Un simple y sencillo editor de mardown.</p>
-          <p>Exporta tu codigo a html o al mismo markdown, todo muy simple.</p>
+          <p>A simple and straightforward mardown editor.</p>
+          <p>Export your code to HTML or to markdown itself, all very simple.</p>
         </div>
         <div className={styles.button}>
           <Link href='/editor'>

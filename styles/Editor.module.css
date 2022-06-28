@@ -1,4 +1,5 @@
 .pageContainer{
+  position: relative;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -79,6 +80,76 @@
 
 .homeIcon:hover{
   transform: scale(1.2);
+}
+
+.menuContainer {
+  position: relative;
+}
+
+.menuButton {
+  background-color: #383838;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.menuButton:hover{
+  background-color: #242424;
+}
+
+.hiddenMenu {
+  display: none;
+}
+
+.showMenu {
+  width: 150px;
+  position: absolute;
+  top: 20px;
+  left: -75px;
+  display: flex;
+  flex-direction: column;
+  background-color: #383838;
+  padding: 10px;
+  z-index: 10;
+  list-style: none;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 2px 5px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.showMenu li {
+  margin-top: 10px;
+  cursor: default;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.showMenu li:hover {
+  background-color: #242424;
+}
+
+.hiddenMessage {
+  display: none;
+}
+
+.showMessage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  background-color: rgba(83, 83, 83, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 600px) {
