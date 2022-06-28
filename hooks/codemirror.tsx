@@ -29,7 +29,7 @@ const syntaxStyles = syntaxHighlighting(defaultHighlightStyle, {fallback: true} 
 
 interface Props {
   initialDoc: string,
-  handleChange: (state:string) => void
+  handleChange: (state:EditorState) => void
 }
 
 const useCodeMirror = <T extends Element>(
@@ -63,7 +63,7 @@ const useCodeMirror = <T extends Element>(
         EditorView.lineWrapping,
         EditorView.updateListener.of(update => {
           if(update.changes){
-            handleChange && handleChange(update.state.doc.toString())
+            handleChange && handleChange(update.state)
           }
         })
       ]

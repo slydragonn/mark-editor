@@ -1,8 +1,9 @@
+import { EditorState } from '@codemirror/state';
 import useCodeMirror from '../hooks/codemirror';
 import styles from '../styles/Editor.module.css';
 
 interface Props {
-  handleChange: (state: string) => void;
+  handleChange: (state:EditorState) => void;
 }
 
 const MardownEditor = ({handleChange}:Props) => {
