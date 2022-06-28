@@ -6,7 +6,7 @@ import useCodeConverter from '../hooks/code-converter'
 import styles from '../styles/Editor.module.css'
 
 const Editor = () => {
-  const {value, converter} = useCodeConverter()
+  const {html, converter} = useCodeConverter()
   
   return (
     <div className={styles.pageContainer}>
@@ -14,7 +14,7 @@ const Editor = () => {
         <Navbar />
         <div className={styles.editorContainer}>
         <MardownEditor handleChange={converter} />
-        <HtmlView html={value} />
+        <HtmlView html={html} />
         </div>
       </EditorLayout>
     </div>

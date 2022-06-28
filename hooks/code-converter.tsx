@@ -1,23 +1,27 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import DOMPurify from 'dompurify'
 import { marked } from 'marked'
 import { useState } from 'react'
 
 interface Code {
-  value: string
+  html: string
   converter: (mardownCode: string) => void
 }
 
 const useCodeConverter = ():Code => {
-  const [code, setCode] = useState('')
-
+  const [html, setHtml] = useState('')
+  
   const markdownToHtml = (mardownCode:string) => {
+
+    localStorage.setItem('code', DOMPurify.sanitize(mardownCode))
+    
     const html = marked.parse(mardownCode)
     const cleanHtml = DOMPurify.sanitize(html)
-    return setCode(cleanHtml)
+    return setHtml(cleanHtml)
   }
 
   return {
-    value: code,
+    html,
     converter: markdownToHtml
   }
 }

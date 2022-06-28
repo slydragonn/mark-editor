@@ -6,9 +6,18 @@ interface Props {
 }
 
 const MardownEditor = ({handleChange}:Props) => {
+  
+  const getLastValue = ():string | null => {
+    if (typeof window !== "undefined") {
+      const value = localStorage.getItem('code')
+      return value ? value : null
+    }
+    return null
+  }
+
   const [refContainer] = useCodeMirror<HTMLDivElement>(
     {
-      initialDoc: '# Hello world!',
+      initialDoc: getLastValue() ?? '# Hello World!',
       handleChange
     })
     
