@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ReactElement } from 'react'
+import { HiHome } from 'react-icons/hi'
 import styles from '../styles/Editor.module.css'
 
 const Navbar = ():ReactElement => {
@@ -7,7 +8,7 @@ const Navbar = ():ReactElement => {
     <nav className={styles.navbar}>
           <div>
             <Link href='/'>
-              <a>Home</a>
+              <a><HiHome className={styles.homeIcon} /></a>
             </Link>
           </div>
           <div>Options</div>

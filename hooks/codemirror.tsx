@@ -8,12 +8,21 @@ import { EditorView, highlightActiveLine, keymap, lineNumbers } from "@codemirro
 import type React from 'react'
 import { useEffect, useRef, useState } from "react"
 
-export const transparentTheme = EditorView.theme({
+export const myTheme = EditorView.theme({
   '&': {
-    backgroundColor: 'transparent !important',
     height: '100%',
+    outline: 'none !important',
+    backgroundColor: 'transparent !important',
+    color: '#ffff'
+    },
+  '.cm-activeLine': {
+    backgroundColor: '#383838'  
+    },
+  '.cm-gutters': {
+    backgroundColor: 'transparent',
+    color: '#ffffff'
   }
-})
+  })
 
 const syntaxStyles = syntaxHighlighting(defaultHighlightStyle, {fallback: true} )
 
@@ -47,8 +56,8 @@ const useCodeMirror = <T extends Element>(
         bracketMatching(),
         indentOnInput(),
         highlightActiveLine(),
+        myTheme,
         oneDark,
-        transparentTheme,
         syntaxStyles,
         EditorView.lineWrapping,
         EditorView.updateListener.of(update => {
