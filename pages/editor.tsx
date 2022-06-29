@@ -1,9 +1,8 @@
-import { EditorState } from '@codemirror/state'
 import { useCallback } from 'react'
-import Navbar from '../components/editor-navbar'
-import HtmlView from '../components/html-view'
+import HtmlView from '../components/editor/html-view'
+import MardownEditor from '../components/editor/markdown-editor'
+import Navbar from '../components/editor/navbar'
 import EditorLayout from '../components/layouts/editor'
-import MardownEditor from '../components/markdown-editor'
 import Message from '../components/message'
 import useCodeConverter from '../hooks/code-converter'
 import useMessage from '../hooks/message'
@@ -12,7 +11,7 @@ import styles from '../styles/Editor.module.css'
 const Editor = () => {
   const { html, converter } = useCodeConverter()
   const handleChange = useCallback(
-    (state:EditorState) => converter(state.doc.toString()),
+    (state:string) => converter(state),
     [converter]
   )
 
@@ -24,8 +23,8 @@ const Editor = () => {
       <EditorLayout>
         <Navbar handleMessage={setMessage} />
         <div className={styles.editorContainer}>
-        <MardownEditor handleChange={handleChange} />
-        <HtmlView html={html} />
+          <MardownEditor handleChange={handleChange} />
+          <HtmlView html={html} />
         </div>
       </EditorLayout>
     </div>

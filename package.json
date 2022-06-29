@@ -17,6 +17,7 @@
     "@codemirror/theme-one-dark": "^6.0.0",
     "@codemirror/view": "^6.0.2",
     "@lezer/highlight": "^1.0.0",
+    "@monaco-editor/react": "^4.4.5",
     "dompurify": "^2.3.8",
     "marked": "^4.0.17",
     "next": "12.1.6",
