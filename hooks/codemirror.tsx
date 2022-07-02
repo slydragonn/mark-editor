@@ -40,6 +40,12 @@ const useCodeMirror = <T extends Element>(
   const [editorView, setEditorView] = useState<EditorView>()
   const { handleChange } = props
 
+  const onUpdate = () => EditorView.updateListener.of(update => {
+    if(update.changes){
+      handleChange && handleChange(update.state.doc.toString())
+    }
+  })
+
   useEffect(() => {
     if(!refContainer.current) return
 
@@ -61,11 +67,7 @@ const useCodeMirror = <T extends Element>(
         oneDark,
         syntaxStyles,
         EditorView.lineWrapping,
-        EditorView.updateListener.of(update => {
-          if(update.changes){
-            handleChange && handleChange(update.state.doc.toString())
-          }
-        })
+        onUpdate()
       ]
     })
     
