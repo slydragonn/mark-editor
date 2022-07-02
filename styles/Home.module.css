@@ -9,7 +9,7 @@
   justify-content: space-around;
   align-items: center;
   z-index: 2;
-  background-color: rgb(250, 245, 228, 0.5);
+  background-color: rgb(56, 56, 56, 0.3);
   backdrop-filter: blur(10px) saturate(150%);
 }
 
@@ -27,13 +27,13 @@
 
 .name {
   font-size: 15px;
-  color: #383838;
+  color: #FAF5E4;
   cursor: default;
   user-select: none;
 }
 
 .text {
-  color: #383838;
+  color: #FAF5E4;
   font-size: 55px;
   font-weight: 500;
   margin: 0;
@@ -49,7 +49,7 @@
 .legend {
   width: 350px;
   text-align: center;
-  color: #383838;
+  color: #FAF5E4;
   font-size: 20px;
   font-weight: 100;
   padding: 0 10px 0 10px;
@@ -63,27 +63,30 @@
   align-items: center;
   width: 200px;
   height: 50px;
-  background-color: #125B50;
+  background: #261280;
   border-radius: 10px;
   color: #FAF5E4;
   font-size: 22px;
   font-weight: 500;
   user-select: none;
-  transition: all 0.3s;
+  transition: all 1.3s;
 }
 
 .button:hover{
-  transform: scale(1.1);
+  animation-name: chageColor;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 .editorIcon {
-  color: #383838;
+  color: #FAF5E4;
   width: 70px;
   height: 70px;
 }
 
 .arrowDownIcon {
-  color: #125B50;
+  color: #FAF5E4;
   width: 35px;
   height: 35px;
   animation-name: arrowDown;
@@ -93,7 +96,7 @@
 }
 
 .githubIcon {
-  color: #383838;
+  color: #FAF5E4;
   width: 25px;
   height: 25px;
 }
@@ -107,6 +110,22 @@
   to {
     transform: translateY(-10px);
   }
+}
+
+@keyframes chageColor {
+  from {
+    background-color: #261280;
+  }
+  33% {
+    background-color: #8b1010;
+  }
+  66% {
+    background-color: #cdcf46;
+  }
+  to {
+    background-color: #0e9c85;
+  }
+  
 }
 
 @media screen and (max-width: 400px) {
