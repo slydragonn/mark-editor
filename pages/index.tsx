@@ -24,11 +24,13 @@ const Home: NextPage = () => {
           <p>A simple and straightforward mardown editor.</p>
           <p>Export your code to HTML or to markdown itself, all very simple.</p>
         </div>
-        <div className={styles.button}>
-          <Link href='/editor'>
-            <a>let&apos;s go</a>
-          </Link>
-        </div>
+        <Link href='/editor'>
+          <a>
+            <div className={styles.button}>
+              <span>let&apos;s go</span>
+            </div>
+          </a>
+        </Link>
         <Link href='https://github.com/slydragonn/mark-editor' passHref>
           <a target='_blank'><BsGithub className={styles.githubIcon} /></a>
         </Link>

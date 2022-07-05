@@ -10,7 +10,7 @@
   align-items: center;
   z-index: 2;
   background-color: rgb(56, 56, 56, 0.3);
-  backdrop-filter: blur(10px) saturate(150%);
+  backdrop-filter: blur(10px) saturate(250%);
 }
 
 .homeContainer {
@@ -33,7 +33,9 @@
 }
 
 .text {
-  color: #FAF5E4;
+  background: linear-gradient(135deg, #5ff7f7 0%, #df3ac3 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 55px;
   font-weight: 500;
   margin: 0;
@@ -44,6 +46,17 @@
 .textContainer {
   margin: 50px 0 50px 0;
   text-align: center;
+  animation-name: text;
+  animation-duration: 2s;
+}
+
+@keyframes text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .legend {
@@ -63,20 +76,19 @@
   align-items: center;
   width: 200px;
   height: 50px;
-  background: #261280;
+  background: #FAF5E4;
   border-radius: 10px;
-  color: #FAF5E4;
   font-size: 22px;
   font-weight: 500;
   user-select: none;
-  transition: all 1.3s;
+  cursor: pointer;
+  box-shadow: 0 4px 5px rgb(44, 44, 44);
 }
 
-.button:hover{
-  animation-name: chageColor;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+.button > span {
+  background: linear-gradient(135deg, #5ff7f7 0%, #df3ac3 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .editorIcon {
@@ -95,13 +107,6 @@
   animation-direction: alternate;
 }
 
-.githubIcon {
-  color: #FAF5E4;
-  width: 25px;
-  height: 25px;
-}
-
-
 @keyframes arrowDown {
   from {
     transform: translateY(10px);
@@ -112,20 +117,10 @@
   }
 }
 
-@keyframes chageColor {
-  from {
-    background-color: #261280;
-  }
-  33% {
-    background-color: #8b1010;
-  }
-  66% {
-    background-color: #cdcf46;
-  }
-  to {
-    background-color: #0e9c85;
-  }
-  
+.githubIcon {
+  color: #FAF5E4;
+  width: 25px;
+  height: 25px;
 }
 
 @media screen and (max-width: 400px) {
