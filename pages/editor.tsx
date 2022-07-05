@@ -4,11 +4,14 @@ import EditorLayout from '../components/layouts/editor'
 import MardownEditor from '../components/markdown-editor'
 import Message from '../components/message'
 import useCodeConverter from '../hooks/code-converter'
+import useCopy from '../hooks/copy'
 import useMessage from '../hooks/message'
 import styles from '../styles/Editor.module.css'
 
 const Editor = () => {
-  const { html, converter } = useCodeConverter()
+  const { html, markdown, converter } = useCodeConverter()
+
+  const { copyCode } = useCopy({html, markdown})
 
   const { textMessage, showMessage, setMessage } = useMessage()
   
@@ -16,7 +19,7 @@ const Editor = () => {
     <div className={styles.pageContainer}>
       <Message message={textMessage} show={showMessage}/>
       <EditorLayout>
-        <Navbar handleMessage={setMessage} />
+        <Navbar handleMessage={setMessage} handleCopy={copyCode} />
         <div className={styles.editorContainer}>
         <MardownEditor handleChange={converter} />
         <HtmlView html={html} />

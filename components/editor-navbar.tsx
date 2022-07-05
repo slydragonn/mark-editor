@@ -2,13 +2,15 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { AiOutlineDown } from 'react-icons/ai'
 import { HiHome } from 'react-icons/hi'
+import { codeType } from '../hooks/copy'
 import styles from '../styles/Editor.module.css'
 
 interface Props {
   handleMessage: (message:string) => NodeJS.Timeout | undefined
+  handleCopy: (method:codeType) => void
 }
 
-const Navbar = ({handleMessage}: Props) => {
+const Navbar = ({handleMessage, handleCopy}: Props) => {
   const [showMenu, setShowMenu] = useState('hiddenMenu')
 
   const toggleShowMenu = () => {
@@ -21,6 +23,11 @@ const Navbar = ({handleMessage}: Props) => {
     }
   }
 
+  const handleClick = (method:codeType, message:string) => {
+    handleCopy(method)
+    handleMessage(message)
+  }
+
   return (
     <nav className={styles.navbar}>
           <div>
@@ -31,8 +38,8 @@ const Navbar = ({handleMessage}: Props) => {
           <div className={styles.menuContainer}>
             <button className={styles.menuButton} onClick={toggleShowMenu}>Options<AiOutlineDown /></button>
             <ul className={styles[showMenu]}>
-              <li onClick={() => handleMessage('Copied Markdown')}>Copy Markdown</li>
-              <li onClick={() => handleMessage('Copied HTML')}>Copy HTML</li>
+              <li onClick={() => handleClick('markdown','Copied Markdown')}>Copy Markdown</li>
+              <li onClick={() => handleClick('html', 'Copied HTML')}>Copy HTML</li>
             </ul>
           </div>
         </nav>
