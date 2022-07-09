@@ -18,6 +18,11 @@ const identifyCode = (type:string, code:string) => {
 export default async function handler(req:any, res:any) {
   if (req.method === "POST") {
     const {code, filename} = JSON.parse(req.body)
+    
+    if(!code || !filename) return res.status(400).json({error: "missing code or filename"}).end()
+
+    if(typeof code !== 'string' || typeof filename !== 'string') return res.status(400).end()
+
     const type = req.headers['content-type']
     res.setHeader('Content-Type', `${type}; charset=utf-8`)
     res.setHeader('Content-Disposition', `attachment; filename=${filename}`)

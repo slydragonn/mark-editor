@@ -29,6 +29,8 @@ const useExport = (code: Code) => {
      
         const fileBlob = await ftch.blob()
         createDownloadLink(fileBlob, filename)
+        
+        if(!ftch.ok) throw new Error(`unexpected response ${ftch.statusText}`)
       
     } catch (err) {
       console.log(err)
