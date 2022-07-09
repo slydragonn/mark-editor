@@ -16,6 +16,16 @@ export const myTheme = EditorView.theme({
     backgroundColor: 'transparent !important',
     color: '#ffff'
     },
+    '.cm-scroller::-webkit-scrollbar': {
+      width: '10px'
+    },
+    '.cm-scroller::-webkit-scrollbar-track': {
+      backgroundColor: 'transparent !important'
+    },
+    '.cm-scroller::-webkit-scrollbar-thumb': {
+      backgroundColor: '#777 !important',
+      borderRadius: '5px'
+    },
   '.cm-activeLine': {
     backgroundColor: '#383838'  
     },
