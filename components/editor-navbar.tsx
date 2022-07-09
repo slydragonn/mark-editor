@@ -3,14 +3,20 @@ import { useState } from 'react'
 import { AiOutlineDown } from 'react-icons/ai'
 import { HiHome } from 'react-icons/hi'
 import { codeType } from '../hooks/copy'
+import useExport from '../hooks/export-code'
 import styles from '../styles/Editor.module.css'
 
+interface Code {
+  html: string
+  markdown: string
+}
 interface Props {
   handleMessage: (message:string) => NodeJS.Timeout | undefined
   handleCopy: (method:codeType) => void
+  code: Code
 }
 
-const Navbar = ({handleMessage, handleCopy}: Props) => {
+const Navbar = ({handleMessage, handleCopy, code}: Props) => {
   const [showMenu, setShowMenu] = useState('hiddenMenu')
 
   const toggleShowMenu = () => {
@@ -28,6 +34,8 @@ const Navbar = ({handleMessage, handleCopy}: Props) => {
     handleMessage(message)
   }
 
+  const {html, markdown} = useExport(code)
+
   return (
     <nav className={styles.navbar}>
           <div>
@@ -40,6 +48,8 @@ const Navbar = ({handleMessage, handleCopy}: Props) => {
             <ul className={styles[showMenu]}>
               <li onClick={() => handleClick('markdown','Copied Markdown')}>Copy Markdown</li>
               <li onClick={() => handleClick('html', 'Copied HTML')}>Copy HTML</li>
+              <li onClick={html}>Export to HTML</li>
+              <li onClick={markdown}>Export to Markdown</li>
             </ul>
           </div>
         </nav>

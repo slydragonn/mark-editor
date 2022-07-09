@@ -11,7 +11,7 @@ interface Code {
 
 const useCodeConverter = ():Code => {
   const [html, setHtml] = useState('')
-  const [cleanMarkdown, setMarkdown] = useState('')
+  const [markdown, setMarkdown] = useState('')
   
   const markdownToHtml = (mardownCode:string) => {
     const clearMarkdown = DOMPurify.sanitize(mardownCode)
@@ -25,7 +25,7 @@ const useCodeConverter = ():Code => {
 
   return {
     html,
-    markdown: cleanMarkdown,
+    markdown,
     converter: markdownToHtml
   }
 }

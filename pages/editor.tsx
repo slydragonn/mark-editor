@@ -19,7 +19,7 @@ const Editor = () => {
     <div className={styles.pageContainer}>
       <Message message={textMessage} show={showMessage}/>
       <EditorLayout>
-        <Navbar handleMessage={setMessage} handleCopy={copyCode} />
+        <Navbar handleMessage={setMessage} handleCopy={copyCode} code={{html, markdown}} />
         <div className={styles.editorContainer}>
         <MardownEditor handleChange={converter} />
         <HtmlView html={html} />
