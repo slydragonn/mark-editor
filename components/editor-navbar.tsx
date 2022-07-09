@@ -36,6 +36,11 @@ const Navbar = ({handleMessage, handleCopy, code}: Props) => {
 
   const {html, markdown} = useExport(code)
 
+  const handleExport = (message:string, callback:() => void) => {
+    callback()
+    handleMessage(message)
+  }
+
   return (
     <nav className={styles.navbar}>
           <div>
@@ -48,8 +53,8 @@ const Navbar = ({handleMessage, handleCopy, code}: Props) => {
             <ul className={styles[showMenu]}>
               <li onClick={() => handleClick('markdown','Copied Markdown')}>Copy Markdown</li>
               <li onClick={() => handleClick('html', 'Copied HTML')}>Copy HTML</li>
-              <li onClick={html}>Export to HTML</li>
-              <li onClick={markdown}>Export to Markdown</li>
+              <li onClick={() => handleExport('Exported HTML', html)}>Export to HTML</li>
+              <li onClick={() => handleExport('Exported Markdown', markdown)}>Export to Markdown</li>
             </ul>
           </div>
         </nav>
