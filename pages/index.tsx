@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { BsArrowDown, BsGithub } from 'react-icons/bs'
-import { SiEditorconfig } from 'react-icons/si'
 import styles from '../styles/Home.module.css'
 
 
@@ -19,7 +19,12 @@ const Home: NextPage = () => {
         <BsArrowDown className={styles.arrowDownIcon}/>
       </section>
       <section className={styles.scrollContainer}>
-        <SiEditorconfig className={styles.editorIcon}/>
+        <Image
+        src='/mark.png'
+        alt='mark editor logo'
+        width={75}
+        height={75}
+         />
         <div className={styles.legend}>
           <p>A simple and straightforward mardown editor.</p>
           <p>Export your code to HTML or to markdown itself, all very simple.</p>

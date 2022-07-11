@@ -11,7 +11,7 @@ const MainLayout = ({children}:Props) => {
     <Head>
         <title>Simple Mardown Editor</title>
         <meta name="description" content="Mark Editor es a simple and easy to use markdown editor" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/markico.jpg" />
       </Head>
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
       { children  }
