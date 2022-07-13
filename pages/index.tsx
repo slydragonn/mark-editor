@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <section className={styles.homeContainer}>
-        <h1 className={styles.name}>Mark Editor</h1>
+        <h1 className={styles.name}>Mark Writer</h1>
         <section className={styles.textContainer}>
           <h2 className={styles.text}>Simple</h2>
           <h2 className={styles.text}>Markdown</h2>
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         height={75}
          />
         <div className={styles.legend}>
-          <p>A simple and straightforward mardown editor.</p>
+          <p>A simple and straightforward Markdown Web Editor.</p>
           <p>Export your code to HTML or to markdown itself, all very simple.</p>
         </div>
         <Link href='/editor'>
