@@ -48,7 +48,7 @@ const useCodeMirror = <T extends Element>(
 
   const refContainer = useRef<T>(null)
   const [editorView, setEditorView] = useState<EditorView>()
-  const { handleChange } = props
+  const { handleChange, initialDoc } = props
 
   const onUpdate = () => EditorView.updateListener.of(update => {
     if(update.changes){
@@ -56,37 +56,37 @@ const useCodeMirror = <T extends Element>(
     }
   })
 
+  const startState = EditorState.create({
+    doc: initialDoc,
+    extensions: [
+      keymap.of([...defaultKeymap, ...historyKeymap]),
+      history(),
+      lineNumbers(),
+      markdown({
+        base: markdownLanguage,
+        codeLanguages: languages,
+        addKeymap: true
+      }),
+      bracketMatching(),
+      indentOnInput(),
+      highlightActiveLine(),
+      myTheme,
+      oneDark,
+      syntaxStyles,
+      EditorView.lineWrapping,
+      onUpdate()
+    ]
+  })
+
   useEffect(() => {
     if(!refContainer.current) return
-
-    const startState = EditorState.create({
-      doc: props.initialDoc,
-      extensions: [
-        keymap.of([...defaultKeymap, ...historyKeymap]),
-        history(),
-        lineNumbers(),
-        markdown({
-          base: markdownLanguage,
-          codeLanguages: languages,
-          addKeymap: true
-        }),
-        bracketMatching(),
-        indentOnInput(),
-        highlightActiveLine(),
-        myTheme,
-        oneDark,
-        syntaxStyles,
-        EditorView.lineWrapping,
-        onUpdate()
-      ]
-    })
     
     const view = new EditorView({
       state: startState,
       parent: refContainer.current
     })
     setEditorView(view)
-    
+
     return () => {
       view.destroy()
     }

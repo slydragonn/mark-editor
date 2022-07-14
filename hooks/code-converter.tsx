@@ -18,9 +18,8 @@ const useCodeConverter = ():Code => {
     localStorage.setItem('code', clearMarkdown)
     setMarkdown(clearMarkdown)
     
-    const html = marked.parse(mardownCode)
-    const cleanHtml = DOMPurify.sanitize(html)
-    return setHtml(cleanHtml)
+    const html = marked.parse(clearMarkdown)
+    return setHtml(html)
   }
 
   return {

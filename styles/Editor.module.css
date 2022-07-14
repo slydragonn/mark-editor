@@ -5,36 +5,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(https://images.unsplash.com/photo-1656460990797-d8602507b5e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
-
-/*image from https://unsplash.com/es/@aedrian*/
 
 .mainContainer{
   display: flex;
   flex-direction: column;
-  width: 95%;
-  height: 95%;
-  border-radius: 5px;
-  background-color: rgba(83, 83, 83, 0.5);
-  backdrop-filter: blur(20px) saturate(120%) contrast(120%);
+  width: 100%;
+  height: 100%;
+  background-color: #1f1f1f;
   color: #ffffff;
-  box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.2);
   animation-name: editor;
-  animation-duration: .7s;
-  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes editor {
   from {
-    transform: translateY(-10px);
     opacity: 0;
   }
   to {
-    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -42,7 +31,7 @@
 .navbar {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #858585;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +53,7 @@
   padding: 5px 15px 5px 15px;
   text-align: left;
   overflow-y: auto;
-  border-left: 1px solid #fff;
+  border-left: 1px solid #858585;
 }
 .containerHtml pre {
   background-color: #383838;
@@ -98,11 +87,6 @@
 .homeIcon {
   width: 25px;
   height: 25px;
-  transition: all .3s;
-}
-
-.homeIcon:hover{
-  transform: scale(1.2);
 }
 
 .menuContainer {
@@ -120,7 +104,7 @@
 }
 
 .menuButton:hover{
-  background-color: #242424;
+  background-color: #181818;
 }
 
 .hiddenMenu {
@@ -134,7 +118,8 @@
   left: -95px;
   display: flex;
   flex-direction: column;
-  background-color: #383838;
+  background-color: transparent;
+  backdrop-filter: blur(20px) saturate(150%) contrast(110%);
   padding: 10px;
   z-index: 10;
   list-style: none;
@@ -151,7 +136,7 @@
 }
 
 .showMenu li:hover {
-  background-color: #242424;
+  background-color: #383838;
 }
 
 .hiddenMessage {
@@ -168,7 +153,7 @@
   justify-content: center;
   align-items: center;
   z-index: 11;
-  background-color: rgba(83, 83, 83, 0.1);
+  background-color: transparent;
   backdrop-filter: blur(20px) saturate(150%) contrast(110%);
   color: #ffffff;
   font-weight: 600;
@@ -195,7 +180,7 @@
     width: 100%;
     height: 50%;
     border-left: none;
-    border-top: 1px solid #fff;
+    border-top: 1px solid #858585;
     margin-top: 0;
   }
   .containerMarkdown{
