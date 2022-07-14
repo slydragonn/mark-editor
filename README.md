@@ -1,1 +1,1 @@
-# Mark editor | Simple Mardown Editor
+# Mark Writer | Simple Mardown Editor
