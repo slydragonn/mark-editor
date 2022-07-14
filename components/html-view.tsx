@@ -10,6 +10,7 @@ const HtmlView = ({html}:Props) => {
     <div 
       className={styles.containerHtml}
       dangerouslySetInnerHTML={{__html: html}}
+      data-cy='html-view'
     />
   )
 }

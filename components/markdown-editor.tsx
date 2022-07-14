@@ -25,6 +25,7 @@ const MardownEditor = ({handleChange}:Props) => {
     <div
       ref={refContainer}
       className={styles.containerMarkdown}
+      data-cy='markdown-editor'
     />
   )
 }
