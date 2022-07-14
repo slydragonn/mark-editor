@@ -9,8 +9,8 @@ const MainLayout = ({children}:Props) => {
   return (
     <>
     <Head>
-        <title>Simple Mardown Editor</title>
-        <meta name="description" content="Mark Editor es a simple and easy to use markdown editor" />
+        <title>Simple Markdown Editor</title>
+        <meta name="description" content="Mark Writer es a simple and easy to use markdown editor" />
         <link rel="icon" href="/markico.jpg" />
       </Head>
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
