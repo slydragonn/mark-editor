@@ -59,7 +59,21 @@
   background-color: #383838;
   padding: 5px;
   border-radius: 3px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
+.containerHtml pre::-webkit-scrollbar {
+  height: 10px;
+}
+.containerHtml pre::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.containerHtml pre::-webkit-scrollbar-thumb {
+  background-color: #777;
+  border-radius: 5px;
+}
+
 .containerHtml::-webkit-scrollbar {
   width: 10px;
 }
