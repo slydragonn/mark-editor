@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { BsArrowDown, BsGithub } from 'react-icons/bs'
@@ -9,6 +10,9 @@ const Home: NextPage = () => {
   
   return (
     <div>
+      <Head>
+        <meta name="google-site-verification" content="eCC5ZfzjHzoPnwPVJqUdh_Wng1wD7E0iJpukIVrrSPU" />
+      </Head>
       <section className={styles.homeContainer}>
         <h1 className={styles.name}>Mark Writer</h1>
         <section className={styles.textContainer}>
